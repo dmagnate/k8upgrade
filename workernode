@@ -1,0 +1,1004 @@
+ubuntu@192.168.0.103's password:
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 • MobaXterm Personal Edition v22.0 •                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to ubuntu@192.168.0.103                                │
+    │   • Direct SSH      :  ✔                                             │
+    │   • SSH compression :  ✔                                             │
+    │   • SSH-browser     :  ✔                                             │
+    │   • X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-99-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ System information disabled due to load higher than 1.0
+
+ * Super-optimized for small spaces - read how we shrank the memory
+   footprint of MicroK8s to make it the smallest full K8s around.
+
+   https://ubuntu.com/blog/microk8s-memory-optimisation
+
+18 updates can be applied immediately.
+8 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+
+Last login: Fri Aug 19 23:40:56 2022 from 192.168.0.16
+/usr/bin/xauth:  file /home/ubuntu/.Xauthority does not exist
+ubuntu@ubworker:~$
+ubuntu@ubworker:~$
+ubuntu@ubworker:~$
+ubuntu@ubworker:~$ docker ps
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json": dial unix /var/run/docker.sock: connect: permission denied
+ubuntu@ubworker:~$
+ubuntu@ubworker:~$
+ubuntu@ubworker:~$
+ubuntu@ubworker:~$ sudo su
+[sudo] password for ubuntu:
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED          STATUS          PORTS     NAMES
+207fa11e929d   295c7be07902           "nginx -g 'daemon of…"   21 minutes ago   Up 20 minutes             k8s_nginx_nginx-deployment-9456bbbf9-phwcx_default_eea38ab9-c16d-43ca-9104-1fd3479c0545_0
+7346b529dbaa   k8s.gcr.io/pause:3.6   "/pause"                 23 minutes ago   Up 23 minutes             k8s_POD_nginx-deployment-9456bbbf9-phwcx_default_eea38ab9-c16d-43ca-9104-1fd3479c0545_0
+602115660fc4   f109b1742d34           "start_runit"            36 minutes ago   Up 36 minutes             k8s_calico-node_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_6
+db09b2ab5226   71b9bf9750e1           "/usr/local/bin/kube…"   50 minutes ago   Up 50 minutes             k8s_kube-proxy_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+e8dbe7cfded0   k8s.gcr.io/pause:3.6   "/pause"                 50 minutes ago   Up 50 minutes             k8s_POD_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_1
+dad7597bf7ed   k8s.gcr.io/pause:3.6   "/pause"                 50 minutes ago   Up 50 minutes             k8s_POD_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# docker inspect 7346b529dbaa
+[
+    {
+        "Id": "7346b529dbaa0b023c535d15ba04ee24a7b7f7945eedae0edb309d47a98dd067",
+        "Created": "2022-08-20T11:54:02.865613625Z",
+        "Path": "/pause",
+        "Args": [],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 15382,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2022-08-20T11:54:38.794015495Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:6270bb605e12e581514ada5fd5b3216f727db55dc87d5889c790e4c760683fee",
+        "ResolvConfPath": "/var/lib/docker/containers/7346b529dbaa0b023c535d15ba04ee24a7b7f7945eedae0edb309d47a98dd067/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/7346b529dbaa0b023c535d15ba04ee24a7b7f7945eedae0edb309d47a98dd067/hostname",
+        "HostsPath": "/var/lib/docker/containers/7346b529dbaa0b023c535d15ba04ee24a7b7f7945eedae0edb309d47a98dd067/hosts",
+        "LogPath": "/var/lib/docker/containers/7346b529dbaa0b023c535d15ba04ee24a7b7f7945eedae0edb309d47a98dd067/7346b529dbaa0b023c535d15ba04ee24a7b7f7945eedae0edb309d47a98dd067-json.log",
+        "Name": "/k8s_POD_nginx-deployment-9456bbbf9-phwcx_default_eea38ab9-c16d-43ca-9104-1fd3479c0545_0",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "none",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "shareable",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": -998,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": [
+                "no-new-privileges"
+            ],
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 2,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "kubepods-besteffort-podeea38ab9_c16d_43ca_9104_1fd3479c0545.slice",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "KernelMemory": 0,
+            "KernelMemoryTCP": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/2a57e2de656adc8635656300e3f1f2bfdcc6888339ae3efb70ce84491d17dca6-init/diff:/var/lib/docker/overlay2/094f0755cc762be1227cd2955f0d7f7bc32b6c49ae8feb25924dc44fe3317f62/diff",
+                "MergedDir": "/var/lib/docker/overlay2/2a57e2de656adc8635656300e3f1f2bfdcc6888339ae3efb70ce84491d17dca6/merged",
+                "UpperDir": "/var/lib/docker/overlay2/2a57e2de656adc8635656300e3f1f2bfdcc6888339ae3efb70ce84491d17dca6/diff",
+                "WorkDir": "/var/lib/docker/overlay2/2a57e2de656adc8635656300e3f1f2bfdcc6888339ae3efb70ce84491d17dca6/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "nginx-deployment-9456bbbf9-phwcx",
+            "Domainname": "",
+            "User": "65535:65535",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": null,
+            "Image": "k8s.gcr.io/pause:3.6",
+            "Volumes": null,
+            "WorkingDir": "/",
+            "Entrypoint": [
+                "/pause"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "annotation.kubernetes.io/config.seen": "2022-08-20T11:53:57.544965810Z",
+                "annotation.kubernetes.io/config.source": "api",
+                "app": "nginx",
+                "io.kubernetes.container.name": "POD",
+                "io.kubernetes.docker.type": "podsandbox",
+                "io.kubernetes.pod.name": "nginx-deployment-9456bbbf9-phwcx",
+                "io.kubernetes.pod.namespace": "default",
+                "io.kubernetes.pod.uid": "eea38ab9-c16d-43ca-9104-1fd3479c0545",
+                "pod-template-hash": "9456bbbf9"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "f24f35493356ea74695454895914a847be41f348f4fe144928d20f91ddd773bc",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {},
+            "SandboxKey": "/var/run/docker/netns/f24f35493356",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "none": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "9649a2381d1960bd9e1cd564d5e33545f6ee43e9c482539132c96242d5151677",
+                    "EndpointID": "c3fdf6aca42b03e1cbe790907248d85ac640c18094a7e512a41ef1141a6a417a",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+root@ubworker:/home/ubuntu# docker rm
+"docker rm" requires at least 1 argument.
+See 'docker rm --help'.
+
+Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]
+
+Remove one or more containers
+root@ubworker:/home/ubuntu# docker rm 7346b529dbaa
+Error response from daemon: You cannot remove a running container 7346b529dbaa0b023c535d15ba04ee24a7b7f7945eedae0edb309d47a98dd067. Stop the container before attempting removal or force remove
+root@ubworker:/home/ubuntu# docker stop 7346b529dbaa
+7346b529dbaa
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED             STATUS             PORTS     NAMES
+207fa11e929d   295c7be07902           "nginx -g 'daemon of…"   43 minutes ago      Up 42 minutes                k8s_nginx_nginx-deployment-9456bbbf9-phwcx_default_eea38ab9-c16d-43ca-9104-1fd3479c0545_0
+602115660fc4   f109b1742d34           "start_runit"            58 minutes ago      Up 58 minutes                k8s_calico-node_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_6
+db09b2ab5226   71b9bf9750e1           "/usr/local/bin/kube…"   About an hour ago   Up About an hour             k8s_kube-proxy_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+e8dbe7cfded0   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago   Up About an hour             k8s_POD_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_1
+dad7597bf7ed   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago   Up About an hour             k8s_POD_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED             STATUS             PORTS     NAMES
+602115660fc4   f109b1742d34           "start_runit"            58 minutes ago      Up 58 minutes                k8s_calico-node_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_6
+db09b2ab5226   71b9bf9750e1           "/usr/local/bin/kube…"   About an hour ago   Up About an hour             k8s_kube-proxy_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+e8dbe7cfded0   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago   Up About an hour             k8s_POD_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_1
+dad7597bf7ed   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago   Up About an hour             k8s_POD_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED             STATUS             PORTS     NAMES
+602115660fc4   f109b1742d34           "start_runit"            58 minutes ago      Up 58 minutes                k8s_calico-node_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_6
+db09b2ab5226   71b9bf9750e1           "/usr/local/bin/kube…"   About an hour ago   Up About an hour             k8s_kube-proxy_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+e8dbe7cfded0   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago   Up About an hour             k8s_POD_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_1
+dad7597bf7ed   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago   Up About an hour             k8s_POD_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED             STATUS             PORTS     NAMES
+df454eddb5d6   k8s.gcr.io/pause:3.6   "/pause"                 48 seconds ago      Up 26 seconds                k8s_POD_nginx-deployment-9456bbbf9-phwcx_default_eea38ab9-c16d-43ca-9104-1fd3479c0545_1
+602115660fc4   f109b1742d34           "start_runit"            59 minutes ago      Up 59 minutes                k8s_calico-node_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_6
+db09b2ab5226   71b9bf9750e1           "/usr/local/bin/kube…"   About an hour ago   Up About an hour             k8s_kube-proxy_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+e8dbe7cfded0   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago   Up About an hour             k8s_POD_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_1
+dad7597bf7ed   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago   Up About an hour             k8s_POD_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED             STATUS             PORTS     NAMES
+df454eddb5d6   k8s.gcr.io/pause:3.6   "/pause"                 51 seconds ago      Up 29 seconds                k8s_POD_nginx-deployment-9456bbbf9-phwcx_default_eea38ab9-c16d-43ca-9104-1fd3479c0545_1
+602115660fc4   f109b1742d34           "start_runit"            59 minutes ago      Up 59 minutes                k8s_calico-node_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_6
+db09b2ab5226   71b9bf9750e1           "/usr/local/bin/kube…"   About an hour ago   Up About an hour             k8s_kube-proxy_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+e8dbe7cfded0   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago   Up About an hour             k8s_POD_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_1
+dad7597bf7ed   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago   Up About an hour             k8s_POD_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED             STATUS             PORTS     NAMES
+df454eddb5d6   k8s.gcr.io/pause:3.6   "/pause"                 53 seconds ago      Up 31 seconds                k8s_POD_nginx-deployment-9456bbbf9-phwcx_default_eea38ab9-c16d-43ca-9104-1fd3479c0545_1
+602115660fc4   f109b1742d34           "start_runit"            59 minutes ago      Up 59 minutes                k8s_calico-node_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_6
+db09b2ab5226   71b9bf9750e1           "/usr/local/bin/kube…"   About an hour ago   Up About an hour             k8s_kube-proxy_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+e8dbe7cfded0   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago   Up About an hour             k8s_POD_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_1
+dad7597bf7ed   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago   Up About an hour             k8s_POD_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+root@ubworker:/home/ubuntu# docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED             STATUS             PORTS     NAMES
+df454eddb5d6   k8s.gcr.io/pause:3.6   "/pause"                 54 seconds ago      Up 32 seconds                k8s_POD_nginx-deployment-9456bbbf9-phwcx_default_eea38ab9-c16d-43ca-9104-1fd3479c0545_1
+602115660fc4   f109b1742d34           "start_runit"            59 minutes ago      Up 59 minutes                k8s_calico-node_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_6
+db09b2ab5226   71b9bf9750e1           "/usr/local/bin/kube…"   About an hour ago   Up About an hour             k8s_kube-proxy_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+e8dbe7cfded0   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago   Up About an hour             k8s_POD_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_1
+dad7597bf7ed   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago   Up About an hour             k8s_POD_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+root@ubworker:/home/ubuntu# docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED             STATUS             PORTS     NAMES
+df454eddb5d6   k8s.gcr.io/pause:3.6   "/pause"                 55 seconds ago      Up 33 seconds                k8s_POD_nginx-deployment-9456bbbf9-phwcx_default_eea38ab9-c16d-43ca-9104-1fd3479c0545_1
+602115660fc4   f109b1742d34           "start_runit"            59 minutes ago      Up 59 minutes                k8s_calico-node_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_6
+db09b2ab5226   71b9bf9750e1           "/usr/local/bin/kube…"   About an hour ago   Up About an hour             k8s_kube-proxy_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+e8dbe7cfded0   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago   Up About an hour             k8s_POD_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_1
+dad7597bf7ed   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago   Up About an hour             k8s_POD_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED              STATUS             PORTS     NAMES
+2254e8f5badd   295c7be07902           "nginx -g 'daemon of…"   39 seconds ago       Up 23 seconds                k8s_nginx_nginx-deployment-9456bbbf9-phwcx_default_eea38ab9-c16d-43ca-9104-1fd3479c0545_1
+df454eddb5d6   k8s.gcr.io/pause:3.6   "/pause"                 About a minute ago   Up 57 seconds                k8s_POD_nginx-deployment-9456bbbf9-phwcx_default_eea38ab9-c16d-43ca-9104-1fd3479c0545_1
+602115660fc4   f109b1742d34           "start_runit"            59 minutes ago       Up 59 minutes                k8s_calico-node_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_6
+db09b2ab5226   71b9bf9750e1           "/usr/local/bin/kube…"   About an hour ago    Up About an hour             k8s_kube-proxy_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+e8dbe7cfded0   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago    Up About an hour             k8s_POD_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_1
+dad7597bf7ed   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago    Up About an hour             k8s_POD_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+root@ubworker:/home/ubuntu# docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED              STATUS             PORTS     NAMES
+2254e8f5badd   295c7be07902           "nginx -g 'daemon of…"   40 seconds ago       Up 24 seconds                k8s_nginx_nginx-deployment-9456bbbf9-phwcx_default_eea38ab9-c16d-43ca-9104-1fd3479c0545_1
+df454eddb5d6   k8s.gcr.io/pause:3.6   "/pause"                 About a minute ago   Up 58 seconds                k8s_POD_nginx-deployment-9456bbbf9-phwcx_default_eea38ab9-c16d-43ca-9104-1fd3479c0545_1
+602115660fc4   f109b1742d34           "start_runit"            59 minutes ago       Up 59 minutes                k8s_calico-node_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_6
+db09b2ab5226   71b9bf9750e1           "/usr/local/bin/kube…"   About an hour ago    Up About an hour             k8s_kube-proxy_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+e8dbe7cfded0   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago    Up About an hour             k8s_POD_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_1
+dad7597bf7ed   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago    Up About an hour             k8s_POD_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+root@ubworker:/home/ubuntu# docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED              STATUS             PORTS     NAMES
+2254e8f5badd   295c7be07902           "nginx -g 'daemon of…"   41 seconds ago       Up 25 seconds                k8s_nginx_nginx-deployment-9456bbbf9-phwcx_default_eea38ab9-c16d-43ca-9104-1fd3479c0545_1
+df454eddb5d6   k8s.gcr.io/pause:3.6   "/pause"                 About a minute ago   Up 59 seconds                k8s_POD_nginx-deployment-9456bbbf9-phwcx_default_eea38ab9-c16d-43ca-9104-1fd3479c0545_1
+602115660fc4   f109b1742d34           "start_runit"            About an hour ago    Up 59 minutes                k8s_calico-node_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_6
+db09b2ab5226   71b9bf9750e1           "/usr/local/bin/kube…"   About an hour ago    Up About an hour             k8s_kube-proxy_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+e8dbe7cfded0   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago    Up About an hour             k8s_POD_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_1
+dad7597bf7ed   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago    Up About an hour             k8s_POD_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+root@ubworker:/home/ubuntu# docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED              STATUS              PORTS     NAMES
+2254e8f5badd   295c7be07902           "nginx -g 'daemon of…"   About a minute ago   Up About a minute             k8s_nginx_nginx-deployment-9456bbbf9-phwcx_default_eea38ab9-c16d-43ca-9104-1fd3479c0545_1
+df454eddb5d6   k8s.gcr.io/pause:3.6   "/pause"                 2 minutes ago        Up About a minute             k8s_POD_nginx-deployment-9456bbbf9-phwcx_default_eea38ab9-c16d-43ca-9104-1fd3479c0545_1
+602115660fc4   f109b1742d34           "start_runit"            About an hour ago    Up About an hour              k8s_calico-node_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_6
+db09b2ab5226   71b9bf9750e1           "/usr/local/bin/kube…"   About an hour ago    Up About an hour              k8s_kube-proxy_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+e8dbe7cfded0   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago    Up About an hour              k8s_POD_calico-node-qj75h_kube-system_b6f9dd49-2ab5-46c3-9bd4-f34f6b182d18_1
+dad7597bf7ed   k8s.gcr.io/pause:3.6   "/pause"                 About an hour ago    Up About an hour              k8s_POD_kube-proxy-mlcbh_kube-system_84c456c1-582a-488a-90ea-f2f1b3ee04ea_1
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# vi /etc/containerd/config.toml
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# systemctl status kubelet
+● kubelet.service - kubelet: The Kubernetes Node Agent
+     Loaded: loaded (/lib/systemd/system/kubelet.service; enabled; vendor preset: enabled)
+    Drop-In: /etc/systemd/system/kubelet.service.d
+             └─10-kubeadm.conf
+     Active: active (running) since Sat 2022-08-20 11:22:44 UTC; 1h 20min ago
+       Docs: https://kubernetes.io/docs/home/
+   Main PID: 655 (kubelet)
+      Tasks: 15 (limit: 1641)
+     Memory: 133.2M
+     CGroup: /system.slice/kubelet.service
+             └─655 /usr/bin/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernete>
+
+Aug 20 12:40:29 ubworker kubelet[655]: time="2022-08-20T12:40:28Z" level=info msg="Released host-wide IPAM lock." source="ipa>
+Aug 20 12:40:29 ubworker kubelet[655]: 2022-08-20 12:40:28.663 [INFO][40371] ipam_plugin.go 285: Calico CNI IPAM assigned add>
+Aug 20 12:40:29 ubworker kubelet[655]: 2022-08-20 12:40:28.672 [INFO][40302] k8s.go 380: Populated endpoint ContainerID="df45>
+Aug 20 12:40:29 ubworker kubelet[655]: 2022-08-20 12:40:28.672 [INFO][40302] k8s.go 381: Calico CNI using IPs: [192.168.0.130>
+Aug 20 12:40:29 ubworker kubelet[655]: 2022-08-20 12:40:28.672 [INFO][40302] dataplane_linux.go 68: Setting the host side vet>
+Aug 20 12:40:29 ubworker kubelet[655]: 2022-08-20 12:40:28.675 [INFO][40302] dataplane_linux.go 453: Disabling IPv4 forwardin>
+Aug 20 12:40:29 ubworker kubelet[655]: 2022-08-20 12:40:28.705 [INFO][40302] k8s.go 408: Added Mac, interface name, and activ>
+Aug 20 12:40:29 ubworker kubelet[655]: 2022-08-20 12:40:29.772 [INFO][40302] k8s.go 482: Wrote updated endpoint to datastore >
+Aug 20 12:40:36 ubworker kubelet[655]: E0820 12:40:36.289924     655 remote_runtime.go:572] "ContainerStatus from runtime ser>
+Aug 20 12:40:36 ubworker kubelet[655]: E0820 12:40:36.291603     655 kuberuntime_manager.go:1072] "getPodContainerStatuses fo>
+Aug 20 12:43:50 ubworker kubelet[655]: E0820 12:43:50.511862     655 kubelet.go:1347] "Image garbage collection failed multip>
+
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# systemctl daemon-reload
+
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# systemctl restart containerd
+root@ubworker:/home/ubuntu# systemctl staus containerd
+Unknown operation staus.
+root@ubworker:/home/ubuntu# systemctl status containerd
+● containerd.service - containerd container runtime
+     Loaded: loaded (/lib/systemd/system/containerd.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sat 2022-08-20 12:47:40 UTC; 10s ago
+       Docs: https://containerd.io
+    Process: 44396 ExecStartPre=/sbin/modprobe overlay (code=exited, status=0/SUCCESS)
+   Main PID: 44397 (containerd)
+      Tasks: 9
+     Memory: 46.6M
+     CGroup: /system.slice/containerd.service
+             └─44397 /usr/bin/containerd
+
+Aug 20 12:47:40 ubworker containerd[44397]: time="2022-08-20T12:47:40.778095432Z" level=info msg=serving... address=/run/cont>
+Aug 20 12:47:40 ubworker containerd[44397]: time="2022-08-20T12:47:40.778663870Z" level=info msg=serving... address=/run/cont>
+Aug 20 12:47:40 ubworker systemd[1]: Started containerd container runtime.
+Aug 20 12:47:40 ubworker containerd[44397]: time="2022-08-20T12:47:40.789835640Z" level=info msg="containerd successfully boo>
+Aug 20 12:47:40 ubworker containerd[44397]: time="2022-08-20T12:47:40.802452549Z" level=info msg="Start subscribing container>
+Aug 20 12:47:40 ubworker containerd[44397]: time="2022-08-20T12:47:40.821031294Z" level=info msg="Start recovering state"
+Aug 20 12:47:41 ubworker containerd[44397]: time="2022-08-20T12:47:41.292553513Z" level=info msg="Start event monitor"
+Aug 20 12:47:41 ubworker containerd[44397]: time="2022-08-20T12:47:41.294382453Z" level=info msg="Start snapshots syncer"
+Aug 20 12:47:41 ubworker containerd[44397]: time="2022-08-20T12:47:41.294883225Z" level=info msg="Start cni network conf sync>
+Aug 20 12:47:41 ubworker containerd[44397]: time="2022-08-20T12:47:41.295390095Z" level=info msg="Start streaming server"
+
+[1]+  Stopped                 systemctl status containerd
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# systemctl status kubelet
+● kubelet.service - kubelet: The Kubernetes Node Agent
+     Loaded: loaded (/lib/systemd/system/kubelet.service; enabled; vendor preset: enabled)
+    Drop-In: /etc/systemd/system/kubelet.service.d
+             └─10-kubeadm.conf
+     Active: active (running) since Sat 2022-08-20 11:22:44 UTC; 1h 25min ago
+       Docs: https://kubernetes.io/docs/home/
+   Main PID: 655 (kubelet)
+      Tasks: 15 (limit: 1641)
+     Memory: 136.5M
+     CGroup: /system.slice/kubelet.service
+             └─655 /usr/bin/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernete>
+
+Aug 20 12:47:16 ubworker kubelet[655]: W0820 12:47:16.434975     655 clientconn.go:1331] [core] grpc: addrConn.createTranspor>
+Aug 20 12:47:16 ubworker kubelet[655]: W0820 12:47:16.684332     655 clientconn.go:1331] [core] grpc: addrConn.createTranspor>
+Aug 20 12:47:17 ubworker kubelet[655]: W0820 12:47:17.122903     655 clientconn.go:1331] [core] grpc: addrConn.createTranspor>
+Aug 20 12:47:17 ubworker kubelet[655]: W0820 12:47:17.775602     655 clientconn.go:1331] [core] grpc: addrConn.createTranspor>
+Aug 20 12:47:18 ubworker kubelet[655]: W0820 12:47:18.725379     655 clientconn.go:1331] [core] grpc: addrConn.createTranspor>
+Aug 20 12:47:20 ubworker kubelet[655]: W0820 12:47:20.201211     655 clientconn.go:1331] [core] grpc: addrConn.createTranspor>
+Aug 20 12:47:22 ubworker kubelet[655]: W0820 12:47:22.615273     655 clientconn.go:1331] [core] grpc: addrConn.createTranspor>
+Aug 20 12:47:27 ubworker kubelet[655]: W0820 12:47:27.045205     655 clientconn.go:1331] [core] grpc: addrConn.createTranspor>
+Aug 20 12:47:32 ubworker kubelet[655]: W0820 12:47:32.413524     655 clientconn.go:1331] [core] grpc: addrConn.createTranspor>
+Aug 20 12:47:38 ubworker kubelet[655]: W0820 12:47:38.097062     655 clientconn.go:1331] [core] grpc: addrConn.createTranspor>
+
+root@ubworker:/home/ubuntu# docke rps
+^CFatal Python error: init_import_size: Failed to import the site module
+Python runtime state: initialized
+Traceback (most recent call last):
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 939, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1038, in get_data
+KeyboardInterrupt
+root@ubworker:/home/ubuntu# docker ps
+
+
+
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# crictl ps
+WARN[0045] runtime connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+WARN[0046] image connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+CONTAINER           IMAGE               CREATED             STATE               NAME                ATTEMPT             POD ID              POD
+aebe3d29862a7       71b9bf9750e1f       52 seconds ago      Running             kube-proxy          2                   c666200f406f1       kube-proxy-mlcbh
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# crictl ps
+WARN[0000] runtime connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+WARN[0000] image connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+CONTAINER           IMAGE               CREATED              STATE               NAME                ATTEMPT             POD ID              POD
+143874cf4fa64       295c7be079025       37 seconds ago       Running             nginx               2                   5d8ecd38eb71d       nginx-deployment-9456bbbf9-phwcx
+9c140bb481113       f86797de8afdf       47 seconds ago       Running             upgrade-ipam        2                   ed4430be6362d       calico-node-qj75h
+aebe3d29862a7       71b9bf9750e1f       About a minute ago   Running             kube-proxy          2                   c666200f406f1       kube-proxy-mlcbh
+root@ubworker:/home/ubuntu# crictl ps
+WARN[0000] runtime connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+WARN[0000] image connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+CONTAINER           IMAGE               CREATED              STATE               NAME                ATTEMPT             POD ID              POD
+143874cf4fa64       295c7be079025       57 seconds ago       Running             nginx               2                   5d8ecd38eb71d       nginx-deployment-9456bbbf9-phwcx
+9c140bb481113       f86797de8afdf       About a minute ago   Running             upgrade-ipam        2                   ed4430be6362d       calico-node-qj75h
+aebe3d29862a7       71b9bf9750e1f       About a minute ago   Running             kube-proxy          2                   c666200f406f1       kube-proxy-mlcbh
+root@ubworker:/home/ubuntu# crictl ps
+WARN[0000] runtime connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+WARN[0000] image connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+CONTAINER           IMAGE               CREATED              STATE               NAME                ATTEMPT             POD ID              POD
+143874cf4fa64       295c7be079025       59 seconds ago       Running             nginx               2                   5d8ecd38eb71d       nginx-deployment-9456bbbf9-phwcx
+9c140bb481113       f86797de8afdf       About a minute ago   Running             upgrade-ipam        2                   ed4430be6362d       calico-node-qj75h
+aebe3d29862a7       71b9bf9750e1f       About a minute ago   Running             kube-proxy          2                   c666200f406f1       kube-proxy-mlcbh
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# crictl ps
+WARN[0000] runtime connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+WARN[0000] image connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+CONTAINER           IMAGE               CREATED              STATE               NAME                ATTEMPT             POD ID              POD
+143874cf4fa64       295c7be079025       About a minute ago   Running             nginx               2                   5d8ecd38eb71d       nginx-deployment-9456bbbf9-phwcx
+9c140bb481113       f86797de8afdf       About a minute ago   Running             upgrade-ipam        2                   ed4430be6362d       calico-node-qj75h
+aebe3d29862a7       71b9bf9750e1f       About a minute ago   Running             kube-proxy          2                   c666200f406f1       kube-proxy-mlcbh
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# crictl ps
+WARN[0000] runtime connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+WARN[0000] image connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+CONTAINER           IMAGE               CREATED              STATE               NAME                ATTEMPT             POD ID              POD
+143874cf4fa64       295c7be079025       About a minute ago   Running             nginx               2                   5d8ecd38eb71d       nginx-deployment-9456bbbf9-phwcx
+9c140bb481113       f86797de8afdf       About a minute ago   Running             upgrade-ipam        2                   ed4430be6362d       calico-node-qj75h
+aebe3d29862a7       71b9bf9750e1f       About a minute ago   Running             kube-proxy          2                   c666200f406f1       kube-proxy-mlcbh
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# crictl ps
+WARN[0000] runtime connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+WARN[0000] image connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+CONTAINER           IMAGE               CREATED              STATE               NAME                ATTEMPT             POD ID              POD
+143874cf4fa64       295c7be079025       About a minute ago   Running             nginx               2                   5d8ecd38eb71d       nginx-deployment-9456bbbf9-phwcx
+9c140bb481113       f86797de8afdf       About a minute ago   Running             upgrade-ipam        2                   ed4430be6362d       calico-node-qj75h
+aebe3d29862a7       71b9bf9750e1f       About a minute ago   Running             kube-proxy          2                   c666200f406f1       kube-proxy-mlcbh
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# crictl ps -a
+WARN[0000] runtime connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+WARN[0000] image connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+CONTAINER           IMAGE               CREATED              STATE               NAME                ATTEMPT             POD ID              POD
+143874cf4fa64       295c7be079025       About a minute ago   Running             nginx               2                   5d8ecd38eb71d       nginx-deployment-9456bbbf9-phwcx
+9c140bb481113       f86797de8afdf       About a minute ago   Running             upgrade-ipam        2                   ed4430be6362d       calico-node-qj75h
+aebe3d29862a7       71b9bf9750e1f       About a minute ago   Running             kube-proxy          2                   c666200f406f1       kube-proxy-mlcbh
+2254e8f5badda       295c7be079025       11 minutes ago       Exited              nginx               1                   df454eddb5d63       nginx-deployment-9456bbbf9-phwcx
+602115660fc46       f109b1742d349       About an hour ago    Exited              calico-node         6                   e8dbe7cfded0a       calico-node-qj75h
+db09b2ab52266       71b9bf9750e1f       About an hour ago    Exited              kube-proxy          1                   dad7597bf7edb       kube-proxy-mlcbh
+root@ubworker:/home/ubuntu# crictl ps
+WARN[0000] runtime connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+WARN[0000] image connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+CONTAINER           IMAGE               CREATED              STATE               NAME                ATTEMPT             POD ID              POD
+143874cf4fa64       295c7be079025       About a minute ago   Running             nginx               2                   5d8ecd38eb71d       nginx-deployment-9456bbbf9-phwcx
+9c140bb481113       f86797de8afdf       About a minute ago   Running             upgrade-ipam        2                   ed4430be6362d       calico-node-qj75h
+aebe3d29862a7       71b9bf9750e1f       About a minute ago   Running             kube-proxy          2                   c666200f406f1       kube-proxy-mlcbh
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# crictl ps
+WARN[0000] runtime connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+WARN[0000] image connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+CONTAINER           IMAGE               CREATED             STATE               NAME                ATTEMPT             POD ID              POD
+ae3d159a0a923       f86797de8afdf       41 seconds ago      Running             install-cni         0                   ed4430be6362d       calico-node-qj75h
+143874cf4fa64       295c7be079025       2 minutes ago       Running             nginx               2                   5d8ecd38eb71d       nginx-deployment-9456bbbf9-phwcx
+aebe3d29862a7       71b9bf9750e1f       2 minutes ago       Running             kube-proxy          2                   c666200f406f1       kube-proxy-mlcbh
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# crictl ps
+WARN[0000] runtime connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+WARN[0000] image connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+CONTAINER           IMAGE               CREATED             STATE               NAME                ATTEMPT             POD ID              POD
+ae3d159a0a923       f86797de8afdf       2 minutes ago       Running             install-cni         0                   ed4430be6362d       calico-node-qj75h
+143874cf4fa64       295c7be079025       3 minutes ago       Running             nginx               2                   5d8ecd38eb71d       nginx-deployment-9456bbbf9-phwcx
+aebe3d29862a7       71b9bf9750e1f       4 minutes ago       Running             kube-proxy          2                   c666200f406f1       kube-proxy-mlcbh
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# crictl ps
+WARN[0000] runtime connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+WARN[0000] image connect using default endpoints: [unix:///var/run/dockershim.sock unix:///run/containerd/containerd.sock unix:///run/crio/crio.sock unix:///var/run/cri-dockerd.sock]. As the default settings are now deprecated, you should set the endpoint instead.
+CONTAINER           IMAGE               CREATED             STATE               NAME                ATTEMPT             POD ID              POD
+ae3d159a0a923       f86797de8afdf       2 minutes ago       Running             install-cni         0                   ed4430be6362d       calico-node-qj75h
+143874cf4fa64       295c7be079025       3 minutes ago       Running             nginx               2                   5d8ecd38eb71d       nginx-deployment-9456bbbf9-phwcx
+aebe3d29862a7       71b9bf9750e1f       4 minutes ago       Running             kube-proxy          2                   c666200f406f1       kube-proxy-mlcbh
+root@ubworker:/home/ubuntu# apt update
+Hit:1 https://download.docker.com/linux/ubuntu focal InRelease
+Get:2 https://packages.cloud.google.com/apt kubernetes-xenial InRelease [9,383 B]
+Hit:3 http://sg.archive.ubuntu.com/ubuntu focal InRelease
+Get:4 http://sg.archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+Get:5 http://sg.archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
+Get:6 http://sg.archive.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+Fetched 345 kB in 5s (66.6 kB/s)
+Error: Timeout was reached
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+4 packages can be upgraded. Run 'apt list --upgradable' to see them.
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# apt-mark unhold kubeadm
+Canceled hold on kubeadm.
+root@ubworker:/home/ubuntu# apt-get update
+Hit:1 http://sg.archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://sg.archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:3 http://sg.archive.ubuntu.com/ubuntu focal-backports InRelease
+Hit:4 https://download.docker.com/linux/ubuntu focal InRelease
+Hit:5 http://sg.archive.ubuntu.com/ubuntu focal-security InRelease
+Hit:6 https://packages.cloud.google.com/apt kubernetes-xenial InRelease
+
+
+
+Error: Timeout was reached
+Reading package lists... 36%
+
+
+Reading package lists... 37%
+Reading package lists... Done
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# apt-get install -y kubeadm=1.24.4-00
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+
+The following packages will be upgraded:
+  kubeadm
+1 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
+Need to get 9,004 kB of archives.
+After this operation, 827 kB disk space will be freed.
+Get:1 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 kubeadm amd64 1.24.4-00 [9,004 kB]
+Fetched 9,004 kB in 1s (7,573 kB/s)
+
+
+
+(Reading database ... 108620 files and directories currently installed.)
+Preparing to unpack .../kubeadm_1.24.4-00_amd64.deb ...
+Unpacking kubeadm (1.24.4-00) over (1.23.3-00) ...
+Setting up kubeadm (1.24.4-00) ...
+root@ubworker:/home/ubuntu# apt-mark hold kubeadm
+kubeadm set on hold.
+root@ubworker:/home/ubuntu# sudo kubeadm upgrade node
+[upgrade] Reading configuration from the cluster...
+[upgrade] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -o yaml'
+[preflight] Running pre-flight checks
+[preflight] Skipping prepull. Not a control plane node.
+[upgrade] Skipping phase. Not a control plane node.
+[kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
+[upgrade] The configuration for this node was successfully updated!
+[upgrade] Now you should go ahead and upgrade the kubelet package using your package manager.
+root@ubworker:/home/ubuntu# apt-mark unhold kubelet kubectl
+Canceled hold on kubelet.
+Canceled hold on kubectl.
+root@ubworker:/home/ubuntu# apt-get update
+Hit:1 https://download.docker.com/linux/ubuntu focal InRelease
+Hit:2 https://packages.cloud.google.com/apt kubernetes-xenial InRelease
+Hit:3 http://sg.archive.ubuntu.com/ubuntu focal InRelease
+Hit:4 http://sg.archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:5 http://sg.archive.ubuntu.com/ubuntu focal-backports InRelease
+Hit:6 http://sg.archive.ubuntu.com/ubuntu focal-security InRelease
+Reading package lists... 37%
+
+
+Reading package lists... 49%
+
+
+
+
+
+
+Reading package lists... 54%
+
+Reading package lists... 55%
+Reading package lists... 55%
+Reading package lists... 55%
+
+
+
+Reading package lists... Done
+root@ubworker:/home/ubuntu# apt-get update
+Hit:1 https://download.docker.com/linux/ubuntu focal InRelease
+Hit:2 https://packages.cloud.google.com/apt kubernetes-xenial InRelease
+Hit:3 http://sg.archive.ubuntu.com/ubuntu focal InRelease
+Hit:4 http://sg.archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:5 http://sg.archive.ubuntu.com/ubuntu focal-backports InRelease
+Hit:6 http://sg.archive.ubuntu.com/ubuntu focal-security InRelease
+Reading package lists... Done
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# apt-get install -y kubelet=1.24.4-00 kubectl=1.24.4-00
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages will be upgraded:
+  kubectl kubelet
+2 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+Need to get 28.5 MB of archives.
+After this operation, 9,331 kB disk space will be freed.
+Get:1 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 kubectl amd64 1.24.4-00 [9,317 kB]
+Get:2 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 kubelet amd64 1.24.4-00 [19.2 MB]
+Fetched 28.5 MB in 2s (13.4 MB/s)
+(Reading database ... 108620 files and directories currently installed.)
+Preparing to unpack .../kubectl_1.24.4-00_amd64.deb ...
+Unpacking kubectl (1.24.4-00) over (1.23.3-00) ...
+Preparing to unpack .../kubelet_1.24.4-00_amd64.deb ...
+Unpacking kubelet (1.24.4-00) over (1.23.3-00) ...
+Setting up kubectl (1.24.4-00) ...
+
+
+
+
+Setting up kubelet (1.24.4-00) ...
+
+
+
+
+
+
+
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# apt-mark hold kubelet kubectl
+kubelet set on hold.
+kubectl set on hold.
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# sudo systemctl daemon-reload
+root@ubworker:/home/ubuntu# sudo systemctl restart kubelet
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# sudo systemctl status kubelet
+● kubelet.service - kubelet: The Kubernetes Node Agent
+     Loaded: loaded (/lib/systemd/system/kubelet.service; enabled; vendor preset: enabled)
+    Drop-In: /etc/systemd/system/kubelet.service.d
+             └─10-kubeadm.conf
+     Active: activating (auto-restart) (Result: exit-code) since Sat 2022-08-20 15:10:23 UTC; 3s ago
+       Docs: https://kubernetes.io/docs/home/
+    Process: 146712 ExecStart=/usr/bin/kubelet $KUBELET_KUBECONFIG_ARGS $KUBELET_CONFIG_ARGS $KUBELET_KUBEADM_ARGS $KUBELET_E>
+   Main PID: 146712 (code=exited, status=1/FAILURE)
+
+Aug 20 15:10:32 ubworker kubelet[146731]:       --tls-min-version string                                   Minimum TLS versio>
+Aug 20 15:10:32 ubworker kubelet[146731]:       --tls-private-key-file string                              File containing x5>
+Aug 20 15:10:32 ubworker kubelet[146731]:       --topology-manager-policy string                           Topology Manager p>
+Aug 20 15:10:32 ubworker kubelet[146731]:       --topology-manager-scope string                            Scope to which top>
+Aug 20 15:10:32 ubworker kubelet[146731]:   -v, --v Level                                                  number for the log>
+Aug 20 15:10:32 ubworker kubelet[146731]:       --version version[=true]                                   Print version info>
+Aug 20 15:10:32 ubworker kubelet[146731]:       --vmodule pattern=N,...                                    comma-separated li>
+Aug 20 15:10:32 ubworker kubelet[146731]:       --volume-plugin-dir string                                 The full path of t>
+Aug 20 15:10:32 ubworker kubelet[146731]:       --volume-stats-agg-period duration                         Specifies interval>
+Aug 20 15:10:32 ubworker kubelet[146731]: Error: failed to parse kubelet flag: unknown flag: --network-plugin
+Aug 20 15:10:43 ubworker systemd[1]: kubelet.service: Scheduled restart job, restart counter is at 5.
+Aug 20 15:10:43 ubworker systemd[1]: Stopped kubelet: The Kubernetes Node Agent.
+Aug 20 15:10:43 ubworker systemd[1]: Started kubelet: The Kubernetes Node Agent.
+Aug 20 15:10:43 ubworker kubelet[146751]: Error: failed to parse kubelet flag: unknown flag: --network-plugin
+Aug 20 15:10:43 ubworker kubelet[146751]: Usage:
+Aug 20 15:10:43 ubworker kubelet[146751]:   kubelet [flags]
+Aug 20 15:10:43 ubworker kubelet[146751]: Flags:
+Aug 20 15:10:43 ubworker kubelet[146751]:       --add-dir-header                                           If true, adds the >
+Aug 20 15:10:43 ubworker kubelet[146751]:       --address ip                                               The IP address for>
+Aug 20 15:10:43 ubworker kubelet[146751]:       --allowed-unsafe-sysctls strings                           Comma-separated wh>
+Aug 20 15:10:43 ubworker kubelet[146751]:       --alsologtostderr                                          log to standard er>
+Aug 20 15:10:43 ubworker kubelet[146751]:       --anonymous-auth                                           Enables anonymous >
+Aug 20 15:10:43 ubworker kubelet[146751]:       --application-metrics-count-limit int                      Max number of appl>
+Aug 20 15:10:43 ubworker kubelet[146751]:       --authentication-token-webhook                             Use the TokenRevie>
+Aug 20 15:10:43 ubworker kubelet[146751]:       --authentication-token-webhook-cache-ttl duration          The duration to ca>
+
+root@ubworker:/home/ubuntu# sudo systemctl status kubelet
+● kubelet.service - kubelet: The Kubernetes Node Agent
+     Loaded: loaded (/lib/systemd/system/kubelet.service; enabled; vendor preset: enabled)
+    Drop-In: /etc/systemd/system/kubelet.service.d
+             └─10-kubeadm.conf
+     Active: activating (auto-restart) (Result: exit-code) since Sat 2022-08-20 15:11:03 UTC; 1s ago
+       Docs: https://kubernetes.io/docs/home/
+    Process: 146785 ExecStart=/usr/bin/kubelet $KUBELET_KUBECONFIG_ARGS $KUBELET_CONFIG_ARGS $KUBELET_KUBEADM_ARGS $KUBELET_E>
+   Main PID: 146785 (code=exited, status=1/FAILURE)
+
+Aug 20 15:11:03 ubworker kubelet[146785]:       --tls-min-version string                                   Minimum TLS versio>
+Aug 20 15:11:03 ubworker kubelet[146785]:       --tls-private-key-file string                              File containing x5>
+Aug 20 15:11:03 ubworker kubelet[146785]:       --topology-manager-policy string                           Topology Manager p>
+Aug 20 15:11:03 ubworker kubelet[146785]:       --topology-manager-scope string                            Scope to which top>
+Aug 20 15:11:03 ubworker kubelet[146785]:   -v, --v Level                                                  number for the log>
+Aug 20 15:11:03 ubworker kubelet[146785]:       --version version[=true]                                   Print version info>
+Aug 20 15:11:03 ubworker kubelet[146785]:       --vmodule pattern=N,...                                    comma-separated li>
+Aug 20 15:11:03 ubworker kubelet[146785]:       --volume-plugin-dir string                                 The full path of t>
+Aug 20 15:11:03 ubworker kubelet[146785]:       --volume-stats-agg-period duration                         Specifies interval>
+Aug 20 15:11:03 ubworker kubelet[146785]: Error: failed to parse kubelet flag: unknown flag: --network-plugin
+
+[2]+  Stopped                 sudo systemctl status kubelet
+root@ubworker:/home/ubuntu# vi /var/lib/
+AccountsService/         dbus/                    kubelet/                 polkit-1/                ucf/
+apport/                  dhcp/                    landscape/               private/                 udisks2/
+apt/                     docker/                  logrotate/               python/                  unattended-upgrades/
+boltd/                   dockershim/              man-db/                  snapd/                   update-manager/
+calico/                  dpkg/                    misc/                    sudo/                    update-notifier/
+cloud/                   fwupd/                   os-prober/               systemd/                 upower/
+cni/                     git/                     PackageKit/              tpm/                     usbutils/
+command-not-found/       grub/                    pam/                     ubuntu-advantage/        vim/
+containerd/              initramfs-tools/         plymouth/                ubuntu-release-upgrader/
+root@ubworker:/home/ubuntu# vi /var/lib/kubelet/kubeadm-flags.env
+root@ubworker:/home/ubuntu# sudo systemctl status kubelet
+● kubelet.service - kubelet: The Kubernetes Node Agent
+     Loaded: loaded (/lib/systemd/system/kubelet.service; enabled; vendor preset: enabled)
+    Drop-In: /etc/systemd/system/kubelet.service.d
+             └─10-kubeadm.conf
+     Active: activating (auto-restart) (Result: exit-code) since Sat 2022-08-20 15:11:34 UTC; 7s ago
+       Docs: https://kubernetes.io/docs/home/
+    Process: 146850 ExecStart=/usr/bin/kubelet $KUBELET_KUBECONFIG_ARGS $KUBELET_CONFIG_ARGS $KUBELET_KUBEADM_ARGS $KUBELET_E>
+   Main PID: 146850 (code=exited, status=1/FAILURE)
+
+Aug 20 15:11:34 ubworker kubelet[146850]:       --tls-min-version string                                   Minimum TLS versio>
+Aug 20 15:11:34 ubworker kubelet[146850]:       --tls-private-key-file string                              File containing x5>
+Aug 20 15:11:34 ubworker kubelet[146850]:       --topology-manager-policy string                           Topology Manager p>
+Aug 20 15:11:34 ubworker kubelet[146850]:       --topology-manager-scope string                            Scope to which top>
+Aug 20 15:11:34 ubworker kubelet[146850]:   -v, --v Level                                                  number for the log>
+Aug 20 15:11:34 ubworker kubelet[146850]:       --version version[=true]                                   Print version info>
+Aug 20 15:11:34 ubworker kubelet[146850]:       --vmodule pattern=N,...                                    comma-separated li>
+Aug 20 15:11:34 ubworker kubelet[146850]:       --volume-plugin-dir string                                 The full path of t>
+Aug 20 15:11:34 ubworker kubelet[146850]:       --volume-stats-agg-period duration                         Specifies interval>
+Aug 20 15:11:34 ubworker kubelet[146850]: Error: failed to parse kubelet flag: unknown flag: --network-plugin
+...skipping...
+● kubelet.service - kubelet: The Kubernetes Node Agent
+     Loaded: loaded (/lib/systemd/system/kubelet.service; enabled; vendor preset: enabled)
+    Drop-In: /etc/systemd/system/kubelet.service.d
+             └─10-kubeadm.conf
+     Active: activating (auto-restart) (Result: exit-code) since Sat 2022-08-20 15:11:34 UTC; 7s ago
+       Docs: https://kubernetes.io/docs/home/
+    Process: 146850 ExecStart=/usr/bin/kubelet $KUBELET_KUBECONFIG_ARGS $KUBELET_CONFIG_ARGS $KUBELET_KUBEADM_ARGS $KUBELET_E>
+   Main PID: 146850 (code=exited, status=1/FAILURE)
+
+Aug 20 15:11:34 ubworker kubelet[146850]:       --tls-min-version string                                   Minimum TLS versio>
+Aug 20 15:11:34 ubworker kubelet[146850]:       --tls-private-key-file string                              File containing x5>
+Aug 20 15:11:34 ubworker kubelet[146850]:       --topology-manager-policy string                           Topology Manager p>
+Aug 20 15:11:34 ubworker kubelet[146850]:       --topology-manager-scope string                            Scope to which top>
+Aug 20 15:11:34 ubworker kubelet[146850]:   -v, --v Level                                                  number for the log>
+Aug 20 15:11:34 ubworker kubelet[146850]:       --version version[=true]                                   Print version info>
+Aug 20 15:11:34 ubworker kubelet[146850]:       --vmodule pattern=N,...                                    comma-separated li>
+Aug 20 15:11:34 ubworker kubelet[146850]:       --volume-plugin-dir string                                 The full path of t>
+Aug 20 15:11:34 ubworker kubelet[146850]:       --volume-stats-agg-period duration                         Specifies interval>
+Aug 20 15:11:34 ubworker kubelet[146850]: Error: failed to parse kubelet flag: unknown flag: --network-plugin
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+
+[3]+  Stopped                 sudo systemctl status kubelet
+root@ubworker:/home/ubuntu# sudo systemctl restart kubelet
+root@ubworker:/home/ubuntu# sudo systemctl status kubelet
+● kubelet.service - kubelet: The Kubernetes Node Agent
+     Loaded: loaded (/lib/systemd/system/kubelet.service; enabled; vendor preset: enabled)
+    Drop-In: /etc/systemd/system/kubelet.service.d
+             └─10-kubeadm.conf
+     Active: active (running) since Sat 2022-08-20 15:11:46 UTC; 1s ago
+       Docs: https://kubernetes.io/docs/home/
+   Main PID: 146891 (kubelet)
+      Tasks: 11 (limit: 1641)
+     Memory: 17.9M
+     CGroup: /system.slice/kubelet.service
+             ├─146891 /usr/bin/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubern>
+             └─146918 iptables -w 5 -W 100000 -C KUBE-POSTROUTING -t nat -m comment --comment kubernetes service traffic requ>
+
+Aug 20 15:11:46 ubworker kubelet[146891]: I0820 15:11:46.947543  146891 kubelet.go:278] "Adding apiserver pod source"
+Aug 20 15:11:46 ubworker kubelet[146891]: I0820 15:11:46.947781  146891 apiserver.go:42] "Waiting for node sync before watchi>
+Aug 20 15:11:46 ubworker kubelet[146891]: I0820 15:11:46.966439  146891 kuberuntime_manager.go:239] "Container runtime initia>
+Aug 20 15:11:46 ubworker kubelet[146891]: I0820 15:11:46.968343  146891 server.go:1181] "Started kubelet"
+Aug 20 15:11:46 ubworker kubelet[146891]: I0820 15:11:46.980064  146891 fs_resource_analyzer.go:67] "Starting FS ResourceAnal>
+Aug 20 15:11:47 ubworker kubelet[146891]: I0820 15:11:47.000233  146891 server.go:150] "Starting to listen" address="0.0.0.0">
+Aug 20 15:11:47 ubworker kubelet[146891]: I0820 15:11:47.001583  146891 server.go:410] "Adding debug handlers to kubelet serv>
+Aug 20 15:11:47 ubworker kubelet[146891]: I0820 15:11:47.008435  146891 volume_manager.go:289] "Starting Kubelet Volume Manag>
+Aug 20 15:11:47 ubworker kubelet[146891]: I0820 15:11:47.010034  146891 desired_state_of_world_populator.go:145] "Desired sta>
+Aug 20 15:11:47 ubworker kubelet[146891]: W0820 15:11:47.597679  146891 clientconn.go:1339] [core] grpc: addrConn.createTrans>
+
+root@ubworker:/home/ubuntu# sudo systemctl status kubelet
+● kubelet.service - kubelet: The Kubernetes Node Agent
+     Loaded: loaded (/lib/systemd/system/kubelet.service; enabled; vendor preset: enabled)
+    Drop-In: /etc/systemd/system/kubelet.service.d
+             └─10-kubeadm.conf
+     Active: active (running) since Sat 2022-08-20 15:11:46 UTC; 3s ago
+       Docs: https://kubernetes.io/docs/home/
+   Main PID: 146891 (kubelet)
+      Tasks: 14 (limit: 1641)
+     Memory: 37.5M
+     CGroup: /system.slice/kubelet.service
+             ├─146891 /usr/bin/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubern>
+             └─146946 /usr/libexec/kubernetes/kubelet-plugins/volume/exec/nodeagent~uds/uds init
+
+Aug 20 15:11:48 ubworker kubelet[146891]: I0820 15:11:48.943782  146891 state_mem.go:35] "Initializing new in-memory state st>
+Aug 20 15:11:49 ubworker kubelet[146891]: I0820 15:11:49.079586  146891 state_mem.go:75] "Updated machine memory state"
+Aug 20 15:11:49 ubworker kubelet[146891]: I0820 15:11:49.087927  146891 manager.go:610] "Failed to read data from checkpoint">
+Aug 20 15:11:49 ubworker kubelet[146891]: I0820 15:11:49.088569  146891 plugin_manager.go:114] "Starting Kubelet Plugin Manag>
+Aug 20 15:11:49 ubworker kubelet[146891]: I0820 15:11:49.454105  146891 topology_manager.go:200] "Topology Admit Handler"
+Aug 20 15:11:49 ubworker kubelet[146891]: I0820 15:11:49.454838  146891 topology_manager.go:200] "Topology Admit Handler"
+Aug 20 15:11:49 ubworker kubelet[146891]: I0820 15:11:49.455365  146891 topology_manager.go:200] "Topology Admit Handler"
+Aug 20 15:11:49 ubworker kubelet[146891]: I0820 15:11:49.455880  146891 topology_manager.go:200] "Topology Admit Handler"
+Aug 20 15:11:49 ubworker kubelet[146891]: I0820 15:11:49.456425  146891 topology_manager.go:200] "Topology Admit Handler"
+Aug 20 15:11:49 ubworker kubelet[146891]: I0820 15:11:49.456971  146891 topology_manager.go:200] "Topology Admit Handler"
+
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# sudo systemctl status kubelet
+● kubelet.service - kubelet: The Kubernetes Node Agent
+     Loaded: loaded (/lib/systemd/system/kubelet.service; enabled; vendor preset: enabled)
+    Drop-In: /etc/systemd/system/kubelet.service.d
+             └─10-kubeadm.conf
+     Active: active (running) since Sat 2022-08-20 15:11:46 UTC; 1min 12s ago
+       Docs: https://kubernetes.io/docs/home/
+   Main PID: 146891 (kubelet)
+      Tasks: 13 (limit: 1641)
+     Memory: 32.3M
+     CGroup: /system.slice/kubelet.service
+             └─146891 /usr/bin/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubern>
+
+Aug 20 15:11:50 ubworker kubelet[146891]: I0820 15:11:50.778664  146891 reconciler.go:342] "operationExecutor.VerifyControlle>
+Aug 20 15:11:50 ubworker kubelet[146891]: I0820 15:11:50.778916  146891 reconciler.go:342] "operationExecutor.VerifyControlle>
+Aug 20 15:11:50 ubworker kubelet[146891]: I0820 15:11:50.779163  146891 reconciler.go:342] "operationExecutor.VerifyControlle>
+Aug 20 15:11:50 ubworker kubelet[146891]: I0820 15:11:50.779456  146891 reconciler.go:342] "operationExecutor.VerifyControlle>
+Aug 20 15:11:50 ubworker kubelet[146891]: I0820 15:11:50.779816  146891 reconciler.go:342] "operationExecutor.VerifyControlle>
+Aug 20 15:11:50 ubworker kubelet[146891]: I0820 15:11:50.780154  146891 reconciler.go:342] "operationExecutor.VerifyControlle>
+Aug 20 15:11:50 ubworker kubelet[146891]: I0820 15:11:50.780419  146891 reconciler.go:342] "operationExecutor.VerifyControlle>
+Aug 20 15:11:50 ubworker kubelet[146891]: I0820 15:11:50.780658  146891 reconciler.go:342] "operationExecutor.VerifyControlle>
+Aug 20 15:11:50 ubworker kubelet[146891]: I0820 15:11:50.781105  146891 reconciler.go:342] "operationExecutor.VerifyControlle>
+Aug 20 15:11:50 ubworker kubelet[146891]: I0820 15:11:50.781457  146891 reconciler.go:159] "Reconciler: start to sync state"
+
+[4]+  Stopped                 sudo systemctl status kubelet
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu# cat /var/lib/kubelet/kubeadm-flags.env
+KUBELET_KUBEADM_ARGS="--container-runtime=remote --container-runtime-endpoint=unix:///var/run/containerd/containerd.sock --pod-infra-container-image=k8s.gcr.io/pause:3.6"
+#KUBELET_KUBEADM_ARGS="--network-plugin=cni --pod-infra-container-image=k8s.gcr.io/pause:3.6"
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
+root@ubworker:/home/ubuntu#
